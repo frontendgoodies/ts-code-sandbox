@@ -31,11 +31,17 @@ export const fetchPlugin = (inputCode: string) => {
 
         const fileType = args.path.match(/.css$/) ? 'css' : 'jsx';
 
+        // remove white spaces + escape double quotes + escape single quotes
+        const escaped = data
+          .replace(/\n/g, '')
+          .replace(/"/g, '\\"')
+          .replace(/'/g, "\\'");
+
         const contents =
           fileType === 'css'
             ? `
             const style = document.createElement('style');
-            style.innerText = 'body { backgroundColor: "red" }';
+            style.innerText = '${escaped}';
             document.head.appendChild(style);
           `
             : data;
