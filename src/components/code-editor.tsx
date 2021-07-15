@@ -1,8 +1,12 @@
 import './code-editor.css';
+import './syntax.css';
 import { useRef } from 'react';
 import MonacoEditor, { EditorDidMount } from '@monaco-editor/react';
 import prettier from 'prettier';
 import parser from 'prettier/parser-babel';
+import { parse } from '@babel/parser';
+import traverse from '@babel/traverse';
+import Highlighter from 'monaco-jsx-highlighter';
 
 interface CodeEditorProps {
   initialValue: string;
@@ -20,6 +24,27 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ onChange, initialValue }) => {
     });
 
     monacoEditor.getModel()?.updateOptions({ tabSize: 2 });
+
+    const defaultOptions = {
+      parser: 'babel', // for reference only, only babel is supported right now
+      isHighlightGlyph: false, // if JSX elements should decorate the line number gutter
+      iShowHover: false, // if JSX types should  tooltip with their type info
+      isUseSeparateElementStyles: false, // if opening elements and closing elements have different styling
+      isThrowJSXParseErrors: false, // Only JSX Syntax Errors are not thrown by default when parsing, true will throw like any other parsign error
+    };
+
+    const babelParse = (code: any) => parse(code, { sourceType: 'module' });
+
+    const highlighter = new Highlighter(
+      // @ts-ignore
+      window.monaco,
+      babelParse,
+      traverse,
+      monacoEditor,
+      defaultOptions
+    );
+
+    highlighter.highLightOnDidChangeModelContent(100, () => {});
   };
 
   const onFormatClick = () => {
