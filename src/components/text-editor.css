@@ -3,7 +3,6 @@
   font-size: unset;
   font-weight: unset;
   letter-spacing: unset;
-  color: #d4d4d4 !important;
 }
 
 .w-md-editor ul {
@@ -52,12 +51,7 @@
 }
 
 .text-editor .w-md-editor-content {
-  background-color: #202123;
-}
-
-.text-editor .w-md-editor,
-.text-editor .w-md-editor .w-md-editor-text-pre {
-  color: #d4d4d4;
+  /* background-color: #202123; */
 }
 
 .text-editor .w-md-editor-text-pre .bold {
