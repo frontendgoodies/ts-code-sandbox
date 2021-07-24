@@ -1,5 +1,5 @@
 {
-  "name": "code-sandbox",
+  "name": "@frontendgoodies/code-sandbox",
   "version": "1.0.0",
   "description": "",
   "publishConfig": {
@@ -26,5 +26,6 @@
     "esbuild": "^0.12.15",
     "esbuild-plugin-babel": "^0.2.3",
     "typescript": "^4.3.5"
-  }
+  },
+  "gitHead": "a85205d786ab936470bab3d734e32fd0dc63832a"
 }
