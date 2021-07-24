@@ -33,7 +33,11 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ onChange, initialValue }) => {
       isThrowJSXParseErrors: false, // Only JSX Syntax Errors are not thrown by default when parsing, true will throw like any other parsign error
     };
 
-    const babelParse = (code: any) => parse(code, { sourceType: 'module' });
+    const babelParse = (code: any) =>
+      parse(code, {
+        sourceType: 'module',
+        plugins: ['jsx'],
+      });
 
     const highlighter = new Highlighter(
       // @ts-ignore
