@@ -1,5 +1,5 @@
 {
-  "name": "local-client",
+  "name": "@js-md-code-sandbox/local-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

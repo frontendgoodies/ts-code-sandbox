@@ -21,7 +21,7 @@ var serve = function (port, filename, dir, useProxy) {
         open_1.default('http://localhost:3000');
     }
     else {
-        var packagePath = require.resolve('local-client/build/index.html');
+        var packagePath = require.resolve('@js-md-code-sandbox/local-client/build/index.html');
         app.use(express_1.default.static(path_1.default.dirname(packagePath)));
         open_1.default(packagePath);
     }

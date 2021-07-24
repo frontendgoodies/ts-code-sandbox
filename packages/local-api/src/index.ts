@@ -23,7 +23,9 @@ export const serve = (
     );
     open('http://localhost:3000');
   } else {
-    const packagePath = require.resolve('local-client/build/index.html');
+    const packagePath = require.resolve(
+      '@js-md-code-sandbox/local-client/build/index.html'
+    );
     app.use(express.static(path.dirname(packagePath)));
     open(packagePath);
   }
