@@ -1,5 +1,6 @@
 {
   "name": "@frontendgoodies/code-sandbox",
+  "url": "https://github.com/frontendgoodies/ts-code-sandbox",
   "version": "1.1.1",
   "description": "Main code sandbox",
   "publishConfig": {
