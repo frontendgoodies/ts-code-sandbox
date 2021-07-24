@@ -27,7 +27,6 @@ export const serve = (
       '@js-md-code-sandbox/local-client/build/index.html'
     );
     app.use(express.static(path.dirname(packagePath)));
-    open(`'http://localhost:${port}`);
   }
 
   return new Promise<void>((resolve, reject) => {

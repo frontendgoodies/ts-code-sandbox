@@ -1,6 +1,7 @@
 import path from 'path';
 import { Command } from 'commander';
 import { serve } from '@js-md-code-sandbox/local-api';
+import open from 'open';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -20,6 +21,7 @@ export const serveCommand = new Command()
       console.log(
         `Opened ${filename}. Navigate to http://localhost:${options.port} to edit the file.`
       );
+      open(`'http://localhost:${options.port}`);
     } catch (err) {
       if (err.code === 'EADDRINUSE') {
         console.error('Port is in use. Try running on a different port.');

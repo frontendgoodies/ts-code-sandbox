@@ -24,6 +24,7 @@
     "@js-md-code-sandbox/local-client": "^1.1.1"
   },
   "devDependencies": {
+    "open": "^8.2.1",
     "@js-md-code-sandbox/local-api": "^1.1.5",
     "@types/node": "^16.4.0",
     "commander": "^8.0.0",
