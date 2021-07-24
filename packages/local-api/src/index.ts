@@ -1,6 +1,7 @@
 import express from 'express';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 import path from 'path';
+import open from 'open';
 import { createCellsRouter } from './routes/cells';
 
 export const serve = (
@@ -20,9 +21,11 @@ export const serve = (
         logLevel: 'silent',
       })
     );
+    open('http://localhost:3000');
   } else {
     const packagePath = require.resolve('local-client/build/index.html');
     app.use(express.static(path.dirname(packagePath)));
+    open(packagePath);
   }
 
   return new Promise<void>((resolve, reject) => {

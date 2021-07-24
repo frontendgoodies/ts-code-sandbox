@@ -7,6 +7,7 @@ exports.serve = void 0;
 var express_1 = __importDefault(require("express"));
 var http_proxy_middleware_1 = require("http-proxy-middleware");
 var path_1 = __importDefault(require("path"));
+var open_1 = __importDefault(require("open"));
 var cells_1 = require("./routes/cells");
 var serve = function (port, filename, dir, useProxy) {
     var app = express_1.default();
@@ -17,10 +18,12 @@ var serve = function (port, filename, dir, useProxy) {
             ws: true,
             logLevel: 'silent',
         }));
+        open_1.default('http://localhost:3000');
     }
     else {
         var packagePath = require.resolve('local-client/build/index.html');
         app.use(express_1.default.static(path_1.default.dirname(packagePath)));
+        open_1.default(packagePath);
     }
     return new Promise(function (resolve, reject) {
         app.listen(port, resolve).on('error', reject);
