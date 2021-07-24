@@ -24,16 +24,16 @@ export const createCellsRouter = (filename: string, dir: string) => {
     } catch (error) {
       //If read throws error see if file doesn't exist
       if (error.code === 'ENOENT') {
-        const defaultExample = JSON.stringify([
+        const defaultExample = [
           {
             content:
               "import React from 'react';\r\nconst { useState } = React;\r\n\r\nconst Counter = () => {\r\n  const [count, setCount] = useState(0);\r\n  \r\n  return (\r\n    <div>\r\n      <p>You clicked {count} times</p>\r\n      <button onClick={() => setCount(count + 1)}>\r\n        Click me\r\n      </button>\r\n    </div>\r\n  );\r\n};\r\n\r\nshow(<Counter />)\r\n",
             type: 'code',
             id: 'hpvXiuxYQq-RAnjawXgPn',
           },
-        ]);
+        ];
         //Add code to create a file add default cells
-        await fs.writeFile(fullPath, defaultExample, 'utf-8');
+        await fs.writeFile(fullPath, JSON.stringify(defaultExample), 'utf-8');
         res.send(defaultExample);
       } else {
         throw error;
