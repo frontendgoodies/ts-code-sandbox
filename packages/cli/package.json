@@ -4,7 +4,7 @@
     "type": "git",
     "url": "https://github.com/frontendgoodies/ts-code-sandbox.git"
   },
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "Main code sandbox",
   "publishConfig": {
     "access": "public"
@@ -24,7 +24,7 @@
     "@js-md-code-sandbox/local-client": "^1.1.7"
   },
   "devDependencies": {
-    "@js-md-code-sandbox/local-api": "^1.1.8",
+    "@js-md-code-sandbox/local-api": "^1.1.9",
     "@types/node": "^16.4.0",
     "commander": "^8.0.0",
     "esbuild": "^0.12.15",
