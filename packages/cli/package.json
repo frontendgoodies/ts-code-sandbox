@@ -1,7 +1,7 @@
 {
   "name": "@frontendgoodies/code-sandbox",
   "version": "1.1.0",
-  "description": "",
+  "description": "Main code sandbox",
   "publishConfig": {
     "access": "public"
   },
@@ -27,5 +27,5 @@
     "esbuild-plugin-babel": "^0.2.3",
     "typescript": "^4.3.5"
   },
-  "gitHead": "a85205d786ab936470bab3d734e32fd0dc63832a"
+  "gitHead": "fd9a5d06c8c5bed9080d9f860c144c7a265599c0"
 }
