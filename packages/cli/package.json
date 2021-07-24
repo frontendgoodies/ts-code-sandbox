@@ -1,6 +1,6 @@
 {
   "name": "@frontendgoodies/code-sandbox",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Main code sandbox",
   "publishConfig": {
     "access": "public"
@@ -17,10 +17,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@js-md-code-sandbox/local-client": "^1.1.0"
+    "@js-md-code-sandbox/local-client": "^1.1.1"
   },
   "devDependencies": {
-    "@js-md-code-sandbox/local-api": "^1.1.0",
+    "@js-md-code-sandbox/local-api": "^1.1.1",
     "@types/node": "^16.4.0",
     "commander": "^8.0.0",
     "esbuild": "^0.12.15",
