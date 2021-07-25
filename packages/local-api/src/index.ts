@@ -1,7 +1,6 @@
 import express from 'express';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 import path from 'path';
-import cors from 'cors';
 import open from 'open';
 import { createCellsRouter } from './routes/cells';
 
@@ -13,7 +12,6 @@ export const serve = (
 ) => {
   const app = express();
 
-  app.use(cors());
   app.use(createCellsRouter(filename, dir));
 
   if (useProxy) {
@@ -30,8 +28,6 @@ export const serve = (
       '@js-md-code-sandbox/local-client/build/index.html'
     );
     app.use(express.static(path.dirname(packagePath)));
-    const url = `http://localhost:${port}`;
-    open(url);
   }
 
   return new Promise<void>((resolve, reject) => {
