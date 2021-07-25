@@ -12,14 +12,8 @@ export const serve = (
   useProxy: boolean
 ) => {
   const app = express();
-  var corsOptions = {
-    origin: '*',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
-  };
 
-  app.use(cors(corsOptions));
+  app.use(cors());
   app.use(createCellsRouter(filename, dir));
 
   if (useProxy) {
