@@ -24,17 +24,23 @@ export const createCellsRouter = (filename: string, dir: string) => {
     } catch (error) {
       //If read throws error see if file doesn't exist
       if (error.code === 'ENOENT') {
-        const defaultExample = [
+        //Add code to create a file add default cells
+        await fs.writeFile(fullPath, '[]', 'utf-8');
+        const defaultContent = [
           {
             content:
-              "import React from 'react';\r\nconst { useState } = React;\r\n\r\nconst Counter = () => {\r\n  const [count, setCount] = useState(0);\r\n  \r\n  return (\r\n    <div>\r\n      <p>You clicked {count} times</p>\r\n      <button onClick={() => setCount(count + 1)}>\r\n        Click me\r\n      </button>\r\n    </div>\r\n  );\r\n};\r\n\r\nshow(<Counter />)\r\n",
+              '## Hey welcome ! \n- Feel free to create a PR if you have a great feature you want to add to this project\n- In the example below is shown how you can output you app via the `root` id or `show` function\nMore info can be found in the [npm package](https://www.npmjs.com/package/@frontendgoodies/code-sandbox)',
+            type: 'text',
+            id: 'example-text-cell',
+          },
+          {
+            content:
+              "import React from 'react';\nimport ReactDOM from 'react-dom';\nconst { useState } = React;\n\nconst Counter = () => {\n  const [count, setCount] = useState(0);\n\n  return (\n    <div>\n      <p>You clicked {count} times</p>\n      <button onClick={() => setCount(count + 1)}>Click me</button>\n    </div>\n  );\n};\n\nReactDOM.render(<Counter />, document.getElementById('root'));\nshow(<Counter />);",
             type: 'code',
-            id: 'hpvXiuxYQq-RAnjawXgPn',
+            id: 'example-code-cell',
           },
         ];
-        //Add code to create a file add default cells
-        await fs.writeFile(fullPath, JSON.stringify(defaultExample), 'utf-8');
-        res.send(defaultExample);
+        res.send(defaultContent);
       } else {
         throw error;
       }
