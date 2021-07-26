@@ -11,11 +11,10 @@ Add new cells by hovering on the divider between the cells
 ### **How to run it?**
 Run the app directly on your local machine by running `npx @frontendgoodies/code-sandbox serve`
 
-### **Options**
-You can define optional parameters like:
-  - port Ex:--port=5000 || --port 5000
-  - filename by just passing a name and optionally a .js extension(passing a filename that you have previously edited will open that file instead and populate cells with those values so this allows you to continue where you left off);
-  Default value: notebook.js
+### **Options/Params**
+ - port: `--port=xxxx` || `--port xxxx`
+ - filename: by just passing a name and optionally a .js extension(passing a filename that you have previously edited will open that file instead and populate cells with those values so this allows you to continue where you left off);
+  Default filename value: `notebook.js`
 ```
 Example:
 npx @frontendgoodies/code-sandbox serve sample.js --port 5000
